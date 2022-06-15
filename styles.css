@@ -1,0 +1,122 @@
+*{
+    box-sizing: border-box;
+}
+
+html, body {
+ height: 100%;
+ margin: 0;
+
+ font-family: system-ui;
+}
+
+#main {
+  height: 100%;
+  display: flex;
+}
+
+#add {
+  background: black;
+  color: white;
+  font-size:medium;
+  border: none;
+}
+
+#add:active {
+  color: black;
+  background:white;
+  border-top: thin solid black;
+  border-right: thin solid black;
+}
+
+#morph-container{
+  display: flex;
+  flex-direction:column;
+  width: 100px;
+}
+
+#signature{
+ position: absolute;
+ bottom: 0;
+ right: 0;
+
+ font-size:small;
+ cursor: pointer;
+}
+
+#signature a{
+ color: black;
+}
+
+#signature a:visited{
+ color: black;
+}
+
+#text {
+ padding-left: 5px;
+}
+
+#circle, #color, #size {
+  border: solid thin black;
+  height: 100px;
+  width: 100px;
+  
+}
+
+
+
+#draggable {
+ position: absolute;
+}
+
+.draggableShape {
+ position: absolute;
+ height: 50px;
+ width: 50px;
+}
+
+.pink {
+ background: pink;
+}
+
+.yellow {
+ background: yellow;
+}
+
+.circle {
+ border-radius: 200px;
+}
+
+@keyframes circle{
+  from {
+    border-radius: 200px;
+    transform: scale(0.95);
+    background: #f0f0f0
+  }
+  to {
+    border-radius: 0px;
+    background: #f0f0f0;
+  }
+}
+
+@keyframes color{
+  from {
+    background: #fedbe1;
+  }
+  to {
+    background: #ffff6b;
+  }
+}
+
+@keyframes size{
+  from {
+    transform:scale(1)
+  }
+  to {
+   transform:scale(0.7)
+  }
+}
+
+.small {
+ height: 150px;
+ width: 150px;
+}
