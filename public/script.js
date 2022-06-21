@@ -1,5 +1,3 @@
-
-
 const circle = document.getElementById("circle");
 const main = document.getElementById("main");
 let currentDraggable;
