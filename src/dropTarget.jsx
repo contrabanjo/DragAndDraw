@@ -12,23 +12,22 @@ function DropTarget(props){
         )	
 }
 
-function dragOverHandler(e){
-    e.preventDefault();
-    e.target.style.animation = "1s infinite alternate-reverse " + e.target.id
+function dragOverHandler(ev){
+    ev.preventDefault();
+    ev.target.style.animation = "1s infinite alternate-reverse " + ev.target.id
 }
 
-function dragEnterHandler(e){
-    e.preventDefault();
-    //e.target.style.animation = "1s infinite alternate-reverse circle"
+function dragEnterHandler(ev){
+    ev.preventDefault();
 }
 
-function dropHandler(e){
+function dropHandler(ev){
     //changeShape(currentDraggable);
-    e.target.style.animation = ""
+    ev.target.style.animation = ""
 }
 
-function dragleaveHandler(e){
-    e.target.style.animation = ""
+function dragleaveHandler(ev){
+    ev.target.style.animation = ""
 }
 
 export default DropTarget;
