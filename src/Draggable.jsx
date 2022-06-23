@@ -38,29 +38,29 @@ export default Draggable;
 
 
 
-function createDraggable(){
-    const newDraggable = document.createElement("div");
-    newDraggable.draggable = true;
-    newDraggable.classList.add("draggableShape", "square", "pink");
+// function createDraggable(){
+//     const newDraggable = document.createElement("div");
+//     newDraggable.draggable = true;
+//     newDraggable.classList.add("draggableShape", "square", "pink");
 
-    let offsetX;
-    let offsetY;
+//     let offsetX;
+//     let offsetY;
 
-    newDraggable.addEventListener("dragstart", (e)=>{
-        const rect = e.target.getBoundingClientRect();
-        offsetX = e.clientX - rect.x;
-        offsetY = e.clientY - rect.y;
+//     newDraggable.addEventListener("dragstart", (e)=>{
+//         const rect = e.target.getBoundingClientRect();
+//         offsetX = e.clientX - rect.x;
+//         offsetY = e.clientY - rect.y;
 
-        currentDraggable = e.target;
-    })
+//         currentDraggable = e.target;
+//     })
 
-    newDraggable.addEventListener("dragend", (e)=>{
-        const left = parseInt(e.target.style.left);
-        const top = parseInt(e.target.style.top);
+//     newDraggable.addEventListener("dragend", (e)=>{
+//         const left = parseInt(e.target.style.left);
+//         const top = parseInt(e.target.style.top);
 
-        e.target.style.top = (e.clientY - offsetY) + "px";
-        e.target.style.left = (e.clientX - offsetX) + "px";
-    })
+//         e.target.style.top = (e.clientY - offsetY) + "px";
+//         e.target.style.left = (e.clientX - offsetX) + "px";
+//     })
 
-    return newDraggable;
-}
+//     return newDraggable;
+// }

@@ -4,6 +4,7 @@ import "./App.css";
 
 import DropTarget from "./dropTarget.jsx"
 import AddButton from "./AddButton.jsx"
+import Canvas from "./Canvas.jsx"
 
 
 class App extends Component{
@@ -14,7 +15,7 @@ class App extends Component{
 		 	<DropTarget id="circle"/>
 		 	<DropTarget id="color"/>
 		 	<DropTarget id="size"/>
-		 	<div id="canvas-react"/>
+		 	<Canvas/>
 		 </div>
 		);
 	}
