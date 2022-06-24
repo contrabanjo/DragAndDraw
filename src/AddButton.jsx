@@ -7,7 +7,7 @@ function AddButton(props){
 	return (
 		<button 
 			id="add"
-			onClick={add}
+			onClick={props.clickHandler}
 		>
 		<b>+</b>
 		</button>
@@ -17,10 +17,10 @@ function AddButton(props){
 export default AddButton;
 
 
-function add(ev){
-	ReactDOM.createPortal(<Draggable/>, document.getElementById("canvas-react"))
+// function add(ev){
+// 	ReactDOM.createPortal(<Draggable/>, document.getElementById("canvas-react"))
 	
-}
+// }
 
 // function Canvas(props){
 // 	const [children, setChildren] = useState([]);

@@ -6,7 +6,7 @@ function Draggable(props){
     let offsetX;
     let offsetY;
 
-    function dragStartHandler(ev){
+    const dragStartHandler = function(ev){
         const rect = ev.target.getBoundingClientRect();
         offsetX = ev.clientX - rect.x;
         offsetY = ev.clientY - rect.y;
@@ -14,7 +14,7 @@ function Draggable(props){
         //currentDraggable = ev.target;
     }
 
-    function dragEndHandler(ev){
+    const dragEndHandler = function(ev){
         const left = parseInt(ev.target.style.left);
         const top = parseInt(ev.target.style.top);
 
