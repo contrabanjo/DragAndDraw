@@ -21,23 +21,27 @@ class Canvas extends React.Component {
 
 	add(){
 		this.setState((state)=> ({
-			children: [...state.children, <Draggable/>]
+			children: [...state.children, <Draggable key={"key" + this.state.children.length} id={"Draggable " + this.state.children.length}/>]
 		}))
 	}
 
 	render(){
 		return (
-			<div id="canvas">
+			<div id="react-canvas">
+
 				<div id="morph-container">
-				<AddButton clickHandler={()=>{
-					this.add()
-				}}/>
-				<DropTarget id="circle"/>
-				<DropTarget id="color"/>
-				<DropTarget id="size" />
-				<p id="text">click "+" to create shape. drag shape over boxes to morph</p>
+					<AddButton clickHandler={()=>{
+						this.add()
+					}}/>
+					<DropTarget id="shape"/>
+					<DropTarget id="color"/>
+					<DropTarget id="size"/>
+					<p id="text">click "+" to create shape. drag shape over boxes to morph</p>
 				</div>
-				{this.state.children}
+				<div id="child-container">
+					{this.state.children}
+				</div>
+				<h3>React</h3>
 			</div>
 		)
 	}

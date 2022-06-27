@@ -22,8 +22,10 @@ function dragEnterHandler(ev){
 }
 
 function dropHandler(ev){
-    //changeShape(currentDraggable);
+    const droppedElement = document.getElementById(ev.dataTransfer.getData("text/plain"))
+    droppedElement.classList.toggle(ev.target.id);
     ev.target.style.animation = ""
+    console.log("item dropped on ", ev.target.id)
 }
 
 function dragleaveHandler(ev){

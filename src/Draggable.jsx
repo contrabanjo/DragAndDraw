@@ -1,30 +1,42 @@
-import React from "react";
+import React, {useState} from "react";
 
 
 
 function Draggable(props){
+
     let offsetX;
     let offsetY;
 
     const dragStartHandler = function(ev){
-        const rect = ev.target.getBoundingClientRect();
-        offsetX = ev.clientX - rect.x;
-        offsetY = ev.clientY - rect.y;
+        ev.dataTransfer.setData("text/plain", ev.target.id);
 
-        //currentDraggable = ev.target;
+        const rect = ev.target.getBoundingClientRect();
+
+        offsetX = ev.clientX - rect.x;
+        offsetY = ev.clientY - rect.y;      
     }
 
     const dragEndHandler = function(ev){
-        const left = parseInt(ev.target.style.left);
-        const top = parseInt(ev.target.style.top);
+        const rect = ev.target.getBoundingClientRect();
+        
+        let left = parseInt(ev.target.style.left);
+        if (isNaN(left)) left = 0;
+        
+        const canvasLeftSide = rect.x - left;
+        let newLeft = (ev.clientX - offsetX)-canvasLeftSide;
+        if (newLeft < 0) newLeft = 0;
 
+        const top = parseInt(ev.target.style.top);
+      
+        ev.target.style.left = newLeft + "px";
         ev.target.style.top = (ev.clientY - offsetY) + "px";
-        ev.target.style.left = (ev.clientX - offsetX) + "px";
     }
     
     return (
         <div 
-            className={`draggableShape pink square`}
+            id={props.id}
+            className={`draggableShape`}
+            // className={props.class}
             draggable={true}
             onDragStart={dragStartHandler}
             onDragEnd={dragEndHandler}
@@ -36,31 +48,3 @@ function Draggable(props){
 export default Draggable;
 
 
-
-
-// function createDraggable(){
-//     const newDraggable = document.createElement("div");
-//     newDraggable.draggable = true;
-//     newDraggable.classList.add("draggableShape", "square", "pink");
-
-//     let offsetX;
-//     let offsetY;
-
-//     newDraggable.addEventListener("dragstart", (e)=>{
-//         const rect = e.target.getBoundingClientRect();
-//         offsetX = e.clientX - rect.x;
-//         offsetY = e.clientY - rect.y;
-
-//         currentDraggable = e.target;
-//     })
-
-//     newDraggable.addEventListener("dragend", (e)=>{
-//         const left = parseInt(e.target.style.left);
-//         const top = parseInt(e.target.style.top);
-
-//         e.target.style.top = (e.clientY - offsetY) + "px";
-//         e.target.style.left = (e.clientX - offsetX) + "px";
-//     })
-
-//     return newDraggable;
-// }

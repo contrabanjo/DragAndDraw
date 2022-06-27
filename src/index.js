@@ -1,4 +1,4 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import App from "./App.js";
-ReactDOM.render(<App />, document.getElementById("root"));
+import Canvas from "./Canvas.jsx";
+ReactDOM.render(<Canvas />, document.getElementById("root"));
